@@ -1,0 +1,38 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <Description>Tibco EMS Transport for Wolverine Messaging Systems</Description>
+    <DebugType>portable</DebugType>
+    <PackageId>WolverineFx.Tibco</PackageId>
+    <GenerateAssemblyProductAttribute>false</GenerateAssemblyProductAttribute>
+    <GenerateAssemblyCopyrightAttribute>false</GenerateAssemblyCopyrightAttribute>
+    <GenerateAssemblyVersionAttribute>false</GenerateAssemblyVersionAttribute>
+    <GenerateAssemblyFileVersionAttribute>false</GenerateAssemblyFileVersionAttribute>
+    <GenerateAssemblyInformationalVersionAttribute>false</GenerateAssemblyInformationalVersionAttribute>
+    <Nullable>enable</Nullable>
+    <RootNamespace>Wolverine.Tibco</RootNamespace>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Reference Include="TIBCO.EMS">
+      <HintPath>..\libs\TIBCO.EMS.dll</HintPath>
+    </Reference>
+  </ItemGroup> 
+  
+  
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\Wolverine\Wolverine.csproj" />
+  </ItemGroup>
+
+  <PropertyGroup>
+    <TargetsForTfmSpecificBuildOutput>$(TargetsForTfmSpecificBuildOutput);GetMyPackageFiles</TargetsForTfmSpecificBuildOutput>
+  </PropertyGroup>
+
+  <Target Name="GetMyPackageFiles">
+    <ItemGroup>
+      <BuildOutputInPackage Include="$(OutputPath)TIBCO.EMS.dll">
+      </BuildOutputInPackage>
+    </ItemGroup>
+  </Target>
+
+</Project>
